@@ -1,0 +1,10 @@
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\bin\Release\paint clone.exe
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\bin\Release\paint clone.pdb
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint_clone.Properties.Resources.resources
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint clone.csproj.GenerateResource.Cache
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint clone.exe
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint clone.pdb
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint_clone.New_Canvas_Form.resources
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint clone.csprojResolveAssemblyReference.cache
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint_clone.AboutBox1.resources
+C:\Users\KARIM123-PC\Documents\Visual Studio 2010\Projects\paint clone\paint clone\obj\x86\Release\paint_clone.MainForm.resources
