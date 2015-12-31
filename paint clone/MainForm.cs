@@ -251,36 +251,51 @@ namespace paint_clone
 
         private void FloodFill(Bitmap bmp, Point pt, Color targetColor, Color replacementColor)
         {
-            Queue<Point> q = new Queue<Point>();
-            q.Enqueue(pt);
+            Stack<Point> pixels = new Stack<Point>();
             
-            while (q.Count > 0)
+            targetColor = bmp.GetPixel(pt.X, pt.Y);
+            int y1;
+            bool spanLeft, spanRight;
+            pixels.Push(pt);
+            while (pixels.Count != 0)
             {
-                Point n = q.Dequeue();
-                if (!ColorMatch(bmp.GetPixel(n.X, n.Y), targetColor))
-                    continue;
-                Point w = n, e = new Point(n.X + 1, n.Y);
-                while ((w.X > 0) && ColorMatch(bmp.GetPixel(w.X, w.Y), targetColor))
+                Point temp = pixels.Pop();
+                y1 = temp.Y;
+                while (y1 > 0 && bmp.GetPixel(temp.X, y1) == targetColor)
                 {
-                    bmp.SetPixel(w.X, w.Y, replacementColor);
-                    if ((w.Y > 0) && ColorMatch(bmp.GetPixel(w.X, w.Y - 1), targetColor))
-                        q.Enqueue(new Point(w.X, w.Y - 1));
-                    if ((w.Y < bmp.Height - 1) && ColorMatch(bmp.GetPixel(w.X, w.Y + 1), targetColor))
-                        q.Enqueue(new Point(w.X, w.Y + 1));
-                    w.X--;
+                    y1--;
                 }
-                while ((e.X < bmp.Width - 1) && ColorMatch(bmp.GetPixel(e.X, e.Y), targetColor))
+                y1++;
+                spanLeft = false;
+                spanRight = false;
+                while (y1 < bmp.Height && bmp.GetPixel(temp.X, y1) == targetColor)
                 {
-                    bmp.SetPixel(e.X, e.Y, replacementColor);
-                    if ((e.Y > 0) && ColorMatch(bmp.GetPixel(e.X, e.Y - 1), targetColor))
-                        q.Enqueue(new Point(e.X, e.Y - 1));
-                    if ((e.Y < bmp.Height - 1) && ColorMatch(bmp.GetPixel(e.X, e.Y + 1), targetColor))
-                        q.Enqueue(new Point(e.X, e.Y + 1));
-                    e.X++;
+                    bmp.SetPixel(temp.X, y1, replacementColor);
+
+                    if (!spanLeft && temp.X > 0 && bmp.GetPixel(temp.X - 1, y1) == targetColor)
+                    {
+                        pixels.Push(new Point(temp.X - 1, y1));
+                        spanLeft = true;
+                    }
+                    else if(spanLeft && temp.X - 1 == 0 && bmp.GetPixel(temp.X - 1, y1) != targetColor)
+                    {
+                        spanLeft = false;
+                    }
+                    if (!spanRight && temp.X < bmp.Width - 1 && bmp.GetPixel(temp.X + 1, y1) == targetColor)
+                    {
+                        pixels.Push(new Point(temp.X + 1, y1));
+                        spanRight = true;
+                    }
+                    else if (spanRight && temp.X < bmp.Width - 1 && bmp.GetPixel(temp.X + 1, y1) != targetColor)
+                    {
+                        spanRight = false;
+                    } 
+                    y1++;
                 }
-                pictureBox1.Refresh();
+
             }
-            
+            pictureBox1.Refresh();
+            return;        
         }
         #endregion
         #region toolstrip menu items
