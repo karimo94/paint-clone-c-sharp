@@ -6,7 +6,6 @@ Small paint clone done in C#.Net
 Done so far:
 
 -Pen tool
-
 -Paint brush
 
 -Fill
