@@ -3,7 +3,7 @@ By Karim Oumghar
 ========
 
 Small paint clone done in C#.Net
-**Done so far:
+**Done so far**:
 
 -Pen tool
 
@@ -18,7 +18,7 @@ Small paint clone done in C#.Net
 -Brush thickness
 
 
-**Currently still in progress...
+**Currently still in progress...**
 
 Undo/Redo, Edit menu, File menu, Drawing shapes, Editing text, Transformations, Selecting tool, Zoom
 
